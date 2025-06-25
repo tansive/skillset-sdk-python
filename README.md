@@ -5,7 +5,7 @@ The official Python SkillSet SDK for Tansive - Open Platform for Secure AI Agent
 ## Installation
 
 ```bash
-pip install tansive
+pip install tansive-skillset-sdk
 ```
 
 ## Quick Start
