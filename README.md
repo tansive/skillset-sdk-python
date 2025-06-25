@@ -1,4 +1,4 @@
-# Tansive Python SDK
+# Tansive™ Python SDK
 
 The official Python SkillSet SDK for Tansive - Open Platform for Secure AI Agents.
 
