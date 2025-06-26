@@ -1,4 +1,4 @@
-# Tansive™ Python SDK
+# Tansive™ Python SkillSet SDK
 
 The official Python SkillSet™ SDK for Tansive™ - Open Platform for Secure AI Agents.
 
@@ -11,11 +11,11 @@ pip install tansive-skillset-sdk
 ## Quick Start
 
 ```python
-from tansive.skillset_sdk import TansiveClient
+from tansive.skillset_sdk import SkillSetClient
 import uuid
 
 # Initialize the client with a Unix domain socket path
-client = TansiveClient("/tmp/tangent.sock")
+client = SkillSetClient("/tmp/tangent.sock")
 
 # Invoke a skill
 result = client.invoke_skill(
@@ -27,9 +27,9 @@ result = client.invoke_skill(
 
 print(result.output)
 
-# Retrieve tools
-tools = client.get_tools(session_id="550e8400-e29b-41d4-a716-446655440000")
-print(tools)
+# Retrieve skills
+skills = client.get_skills(session_id="550e8400-e29b-41d4-a716-446655440000")
+print(skills)
 
 # Fetch context
 context = client.get_context(

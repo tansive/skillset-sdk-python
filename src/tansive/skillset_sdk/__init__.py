@@ -2,9 +2,9 @@
 Tansive Skillset SDK
 """
 
-__version__ = "0.1.0-alpha.1"
+__version__ = "0.1.0-alpha.2"
 
-from .client import TansiveClient, SkillInvocation, SkillResult
+from .client import SkillSetClient, SkillInvocation, SkillResult
 from .exceptions import (
     TansiveError,
     TansiveConnectionError,
@@ -15,7 +15,7 @@ from .exceptions import (
 )
 
 __all__ = [
-    "TansiveClient",
+    "SkillSetClient",
     "SkillInvocation",
     "SkillResult",
     "TansiveError",
