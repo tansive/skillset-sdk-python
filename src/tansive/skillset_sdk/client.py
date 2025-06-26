@@ -1,7 +1,7 @@
 """Tansive SkillSet SDK Client
 
 Provides the primary client interface for interacting with the Tansive SkillSet service over
-Unix domain sockets. Handles skill invocation, context access, and tool discovery with
+Unix domain sockets. Handles skill invocation, context access, and skill discovery with
 built-in connection management, retries, and error handling.
 """
 
@@ -100,7 +100,7 @@ class UnixHTTPConnection(http.client.HTTPConnection):
             raise TansiveError(f"Unexpected error during connection: {e}")
 
 
-class TansiveClient:
+class SkillSetClient:
     """Client for interacting with the Tansive SkillSet service.
 
     Handles communication over Unix domain sockets with automatic retries and error handling.
@@ -233,17 +233,17 @@ class TansiveClient:
         except Exception as e:
             raise TansiveError(f"Failed to invoke skill: {e}")
 
-    def get_tools(
+    def get_skills(
         self, session_id: str, ctx: Optional[Any] = None
     ) -> List[Dict[str, Any]]:
-        """Get available tools for the given session.
+        """Get available skills for the given session.
 
         Parameters:
             session_id (str): Session identifier from Tansive service.
             ctx (Optional[Any]): Optional context for the request.
 
         Returns:
-            List[Dict[str, Any]]: Available tools and their configurations.
+            List[Dict[str, Any]]: Available skills and their configurations.
 
         Raises:
             TansiveValidationError: If session_id is missing.
@@ -254,11 +254,11 @@ class TansiveClient:
 
         try:
             query = urlencode({"session_id": session_id})
-            return self._make_request("GET", f"/tools?{query}", ctx=ctx)
+            return self._make_request("GET", f"/skills?{query}", ctx=ctx)
         except TansiveError:
             raise
         except Exception as e:
-            raise TansiveError(f"Failed to get tools: {e}")
+            raise TansiveError(f"Failed to get skills: {e}")
 
     def get_context(
         self, session_id: str, invocation_id: str, name: str, ctx: Optional[Any] = None
